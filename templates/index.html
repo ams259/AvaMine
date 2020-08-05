@@ -1,0 +1,105 @@
+<<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Начать игру | AvaZoom</title>
+<link rel="manifest" href="/files/site/site.webmanifest">
+<link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+<link href="/files/index.css?103" rel="stylesheet">
+</head>
+<body>
+<div id="page-container">
+<div id="content-wrap">
+<center>
+<br>
+<input id="clickMe" type="button" value="Начать игру" class="form_button2" onclick="start();" />
+<a style="display: none;" id="flash" href="https://get.adobe.com/flashplayer">Включить Flash</a>
+<div id="flashContent"></div>
+<br>
+<script>
+			function start(){
+				document.getElementById('clickMe').style.display = "none";
+				if (swfobject.getFlashPlayerVersion().major == 0){
+					document.getElementById('flash').style.display = "block";
+					return;
+				}
+				var vars = {};
+				vars['config'] = '/appconfig.xml';
+				vars['versions'] = '/files/versions.json?1596555130';
+				vars['appSwf'] = '/files/pnz-city.swf?1596555130';
+				var flashVars = [];
+				for (var variable in vars) {
+					flashVars.push(variable + '=' + vars[variable]);
+				}
+				flashVars.push("auth_key=niACuaoDYzQEjUzUOVbf");
+				flashVars.push("access_token=2c90a2a3e6995ad57d87b7f057d84fdd9919bb4aef32c252518cda494ca4d60fbe61c028c7652dd03b269");
+				flashVars.push("viewer_id=552813495");
+				flashVars.push("user_id=552813495");
+				flashVars.push("api_settings=263");
+				flashVars.push("is_app_user=1");
+				flashVars.push("api_url=https://api.vk.com/api.php");
+				flashVars.push("api_id=7556745");
+				flashVars.push("api_settings=7");
+				flashVars.push("viewer_type=0");
+				flashVars.push("sid=552813495");
+				flashVars.push("group_id=0");
+				flashVars.push("language=0");
+				flashVars.push("parent_language=0");
+				flashVars.push("is_secure=1");
+				flashVars.push("stats_hash=2c90a2a3e6995ad57d87b7f057d84fdd9919bb4aef32c252518cda494ca4d60fbe61c028c7652dd03b269");
+				flashVars.push("ads_app_id=7556745");
+				flashVars.push("referrer=collections");
+				flashVars.push("lc_name=2c90a2a3e6995ad57d87b7f057d84fdd9919bb4aef32c252518cda494ca4d60fbe61c028c7652dd03b269");
+				flashVars.push("platform=web");
+				flashVars.push("hash=2c90a2a3e6995ad57d87b7f057d84fdd9919bb4aef32c252518cda494ca4d60fbe61c028c7652dd03b269");
+				var params = {
+					flashvars: flashVars.join("&"),
+					allowfullscreen: "true",
+					allowscriptaccess: "always",
+					allowFullScreenInteractive: "true",
+					allownetworking: "all",
+					wmode: "transparent"
+				};
+				var el = document.getElementById("flashContent");
+				swfobject.embedSWF("/files/pnz-city-container.swf", el, 1280, 720, 10, null, null, params, {name: "flashContent"});
+				initVK();
+				}
+
+				function exit(){
+					window.location.pathname  = "/logout";
+				}
+
+				function buyprem(){
+					window.location.pathname  = "/buyprem";
+				}				
+			</script>
+</center>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<footer id="footer">
+<div class="container1">
+<center>
+<input id="exit" type="button" value="Выйти" class="form_button" onclick="exit();" /><br><br>
+<input id="buyprem" type="button" value="Купить премиум" class="form_button" onclick="buyprem();" />
+</center>
+</div>
+<div class="container2">
+<center>
+<p>Текущий онлайн: "online"</p>
+</center>
+</div>
+</footer>
+<script src="/files/js/start.js"></script>
+<script src="/files/swfobject.js"></script>
+<script src="/files/openapi.js"></script>
+<script src="/files/xd_connection.js"></script>
+<script src="/files/jquery-3.4.1.min.js"></script>
+</body>
+</html>
